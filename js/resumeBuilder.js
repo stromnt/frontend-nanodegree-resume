@@ -86,11 +86,11 @@ var education = {
             $('#education').append(HTMLonlineClasses);
             for (var online of education.onlineCourses) {
                 $('#education').append(HTMLschoolStart);
-                var educationentry = HTMLonlineTitle.replace('%data%', online.title);
-                educationentry += HTMLonlineSchool.replace('%data%', online.school);
-                educationentry += HTMLonlineDates.replace('%data%', online.dates);
-                educationentry += HTMLonlineURL.replace('%data%', online.url);
-                $('.education-entry:last').html(educationentry);
+                var onlineEntry = HTMLonlineTitle.replace('%data%', online.title);
+                onlineEntry += HTMLonlineSchool.replace('%data%', online.school);
+                onlineEntry += HTMLonlineDates.replace('%data%', online.dates);
+                onlineEntry += HTMLonlineURL.replace('%data%', online.url);
+                $('.education-entry:last').html(onlineEntry);
             }
         }
     }
@@ -98,7 +98,7 @@ var education = {
 education.display();
 
 var work = {
-    'schools': [{
+    'jobs': [{
         'employer': 'CHEP',
         'title': 'Senior Java Developer',
         'location': 'Durban, South Africa',
@@ -108,7 +108,7 @@ var work = {
     {
         'employer': 'CT Bowring',
         'title': 'Analyst Programmer',
-        'location': 'Trinity House, London, UK',
+        'location': 'Trinity Square, London, UK',
         'dates': '1995-1995',
         'description': 'Develop mainly C interfaces between core Wang and Insurer desktop systems'
     },
@@ -167,20 +167,14 @@ var projects = {
                 $('.project-entry:last').html(projectentry);
             }
         }
+        $('#mapDiv').append(googleMap);
     }
 };
 projects.display();
 
+// $('body').append(internationalizeButton);
 
-$(document).click ( function (event) {
-    logClicks( event.pageX, event.pageY);
-});
-
-$('body').append(internationalizeButton);
-
-var inName = function( name) {
-    var names = name.split(' ');
-    return names[0].charAt(0).toUpperCase() + names[0].substring(1) + ' ' + names[1].toUpperCase();
-};
-
-$('#mapDiv').append(googleMap);
+// var inName = function( name) {
+//     var names = name.split(' ');
+//     return names[0].charAt(0).toUpperCase() + names[0].substring(1) + ' ' + names[1].toUpperCase();
+// };
