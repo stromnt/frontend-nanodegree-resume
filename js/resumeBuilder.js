@@ -28,16 +28,17 @@ var bio = {
         //skills
         $('#header').append(HTMLskillsStart);
         if ( bio.skills && bio.skills.length > 0 ) {
-            for ( var skill of bio.skills) {
+            bio.skills.forEach( function(skill){
                 $('#skills').append(HTMLskills.replace('%data%', skill));
-            }
+            });
         }
     }
 };
 bio.display();
 
 var education = {
-    'schools': [{
+    'schools': [
+    {
         'name': 'WGHS',
         'location': '12 Westville Road, Westville, South Africa',
         'degree': 'NSC',
@@ -52,8 +53,10 @@ var education = {
         'majors': ['Maths', 'Computer Science'],
         'dates': '1987-1989',
         'url': 'www.uct.ac.za'
-    }],
-    'onlineCourses': [{
+    }
+    ],
+    'onlineCourses': [
+    {
         'title': 'Web Developer',
         'school': 'Udacity',
         'dates': '2016-2017',
@@ -64,41 +67,43 @@ var education = {
         'school': 'Safari Books',
         'dates': '2015',
         'url': 'www.safaribooks.com'
-    }],
+    }
+    ],
     'display': function () {
         if ( education.schools && education.schools.length > 0 ) {
-            for (var school of education.schools) {
+            education.schools.forEach(function(school){
                 $('#education').append(HTMLschoolStart);
                 var educationentry = HTMLschoolName.replace('%data%', school.name);
                 educationentry += HTMLschoolDegree.replace('%data%', school.degree);
                 educationentry += HTMLschoolDates.replace('%data%', school.dates);
                 educationentry += HTMLschoolLocation.replace('%data%', school.location);
                 var majors = '';
-                for (var major of school.majors) {
+                school.majors.forEach( function(major){
                     majors += major + ' ';
-                }
+                });
                 educationentry += HTMLschoolMajor.replace('%data%', majors);
                 $('.education-entry:last').html(educationentry);
-            }
+            });
         }
 
         if ( education.onlineCourses && education.onlineCourses.length > 0 ) {
             $('#education').append(HTMLonlineClasses);
-            for (var online of education.onlineCourses) {
+            education.onlineCourses.forEach( function(online){
                 $('#education').append(HTMLschoolStart);
                 var onlineEntry = HTMLonlineTitle.replace('%data%', online.title);
                 onlineEntry += HTMLonlineSchool.replace('%data%', online.school);
                 onlineEntry += HTMLonlineDates.replace('%data%', online.dates);
                 onlineEntry += HTMLonlineURL.replace('%data%', online.url);
                 $('.education-entry:last').html(onlineEntry);
-            }
+            });
         }
     }
 };
 education.display();
 
 var work = {
-    'jobs': [{
+    'jobs': [
+    {
         'employer': 'CHEP',
         'title': 'Senior Java Developer',
         'location': 'Durban, South Africa',
@@ -118,10 +123,11 @@ var work = {
         'location': 'Durban, South Africa',
         'dates': '1990-1995',
         'description': 'Developed statictical analytical programs in Fortran and C (X-11 Arima)'
-    }],
+    }
+    ],
     'display': function () {
         if ( work.jobs && work.jobs.length > 0 ) {
-            for (var job of work.jobs) {
+            work.jobs.forEach( function(job){
                 $('#workExperience').append(HTMLworkStart);
                 var workentry = HTMLworkEmployer.replace('%data%', job.employer);
                 workentry += HTMLworkTitle.replace('%data%', job.title);
@@ -129,7 +135,7 @@ var work = {
                 workentry += HTMLworkLocation.replace('%data%', job.location);
                 workentry += HTMLworkDescription.replace('%data%', job.description);
                 $('.work-entry:last').html(workentry);
-            }
+            });
         }
     }
 };
@@ -153,19 +159,21 @@ var projects = {
         'images': [
         'images/project2.1.jpg'
         ]
-    }],
+    }
+    ],
     'display': function () {
         if ( projects.projects && projects.projects.length > 0 ) {
-            for (var project of projects.projects) {
+            projects.projects.forEach( function (project) {
+            // for (var project of projects.projects) {
                 $('#projects').append(HTMLprojectStart);
                 var projectentry = HTMLprojectTitle.replace('%data%', project.title);
                 projectentry += HTMLprojectDates.replace('%data%', project.dates);
                 projectentry += HTMLprojectDescription.replace('%data%', project.description);
-                for (var image of project.images) {
+                project.images.forEach( function (image){
                     projectentry += HTMLprojectImage.replace('%data%', image);
-                }
+                });
                 $('.project-entry:last').html(projectentry);
-            }
+            });
         }
         $('#mapDiv').append(googleMap);
     }
