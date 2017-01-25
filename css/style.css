@@ -11,7 +11,7 @@ h5,
 h6 {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Signika", sans-serif;
 }
 
 .clear-fix {
@@ -24,9 +24,13 @@ h6 {
   padding: 0 5%;
 }
 
+.education-entry:nth-child(even) {
+  background-color: #e8e4e4;
+}
+
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #f5ae23;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +38,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #f5ae23;
   line-height: 29px;
   padding: 10px;
 }
@@ -104,12 +108,12 @@ a {
   display: none;
 }
 
-.orange {
-  background-color: #f5ae23;
+.blue {
+  background-color: #5B88B8;
 }
 
-.orange-text {
-  color: #f5ae23;
+.blue-text {
+  color: #2731b5;
 }
 
 .white-text {
@@ -129,7 +133,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #5486a2;
 }
 
 .flex-box {

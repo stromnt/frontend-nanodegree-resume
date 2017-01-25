@@ -15,12 +15,19 @@ var bio = {
         $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
         $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
 
-        //contact details
+        //header contact details
         $('#topContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
         $('#topContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
-        $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.githum));
+        $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
         $('#topContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
         $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+
+        //footer  contact details
+        $('#footerContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+        $('#footerContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
+        $('#footerContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
+        $('#footerContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
+        $('#footerContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
 
         $('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
         $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
@@ -73,7 +80,7 @@ var education = {
         if ( education.schools && education.schools.length > 0 ) {
             education.schools.forEach(function(school){
                 $('#education').append(HTMLschoolStart);
-                var educationentry = HTMLschoolName.replace('%data%', school.name);
+                var educationentry = HTMLschoolName.replace('%data%', school.name ).replace('#', school.url);
                 educationentry += HTMLschoolDegree.replace('%data%', school.degree);
                 educationentry += HTMLschoolDates.replace('%data%', school.dates);
                 educationentry += HTMLschoolLocation.replace('%data%', school.location);
@@ -175,7 +182,7 @@ var projects = {
                 $('.project-entry:last').html(projectentry);
             });
         }
-        $('#mapDiv').append(googleMap);
+        // $('#mapDiv').append(googleMap);
     }
 };
 projects.display();
