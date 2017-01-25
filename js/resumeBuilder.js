@@ -182,10 +182,11 @@ var projects = {
                 $('.project-entry:last').html(projectentry);
             });
         }
-        // $('#mapDiv').append(googleMap);
     }
 };
 projects.display();
+
+$('#mapDiv').append(googleMap);
 
 // $('body').append(internationalizeButton);
 
